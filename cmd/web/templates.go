@@ -9,11 +9,13 @@ import (
 )
 
 type templateData struct {
-	CurrentYear int //Common data for all templates (Cap 5.5)
-	Snippet     *models.Snippet
-	Snippets    []*models.Snippet
-	Form *forms.Form
-	Flash string
+	CurrentYear       int //Common data for all templates (Cap 5.5)
+	Snippet           *models.Snippet
+	Snippets          []*models.Snippet
+	Form              *forms.Form
+	Flash             string
+	AuthenticatedUser int
+	CSRFToken         string
 }
 
 func newTemplateCache(dir string) (map[string]*template.Template, error) {
