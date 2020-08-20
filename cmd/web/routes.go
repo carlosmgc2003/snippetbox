@@ -10,7 +10,7 @@ import (
 func (app *application) routes() http.Handler {
 
 	standardMiddleware := alice.New(app.recoverPanic, app.logRequest, secureHeaders)
-	dynamicMiddleware := alice.New(app.session.Enable, noSurf) //que incluye la validacion de sesion
+	dynamicMiddleware := alice.New(app.session.Enable, noSurf, app.authenticate) //que incluye la validacion de sesion
 
 	// Rutas de regla de negocio
 	mux := pat.New()
